@@ -8,9 +8,9 @@ import StudentTable from "./components/StudentTable.vue"
 
   <NewStudentForm></NewStudentForm>
 
-  <StudentMessage></StudentMessage>
-
   <StudentTable></StudentTable>
+
+  <StudentMessage></StudentMessage>
 
 </template>
 

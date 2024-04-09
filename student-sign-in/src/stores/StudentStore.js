@@ -22,6 +22,10 @@ export const useStudentStore = defineStore('students', () => {
         })
     }
 
+    function arrivedOrLeft (student) {
+        mostRecentStudent.value = student  // assign the student passed to this function to be the mostRecentStudent
+    }
+
 
     return {  // return all variable/function names
         // reactive data
@@ -30,7 +34,8 @@ export const useStudentStore = defineStore('students', () => {
 
         // functions
         addNewStudent,
-        deleteStudent
+        deleteStudent,
+        arrivedOrLeft
     }
 
 })

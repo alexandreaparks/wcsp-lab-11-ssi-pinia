@@ -12,6 +12,10 @@ const deleteStudent = (student) => {
   studentStore.deleteStudent(student)  // use studentStore function deleteStudent
 }
 
+const arrivedOrLeft = (student) => {
+  studentStore.arrivedOrLeft(student)
+}
+
 </script>
 
 <template>
