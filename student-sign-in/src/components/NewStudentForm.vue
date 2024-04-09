@@ -1,6 +1,9 @@
 <script setup>
 
-import {ref} from "vue";
+import {ref} from 'vue'
+import { useStudentStore } from '../stores/StudentStore.js'
+
+const studentStore = useStudentStore()  // reference store to use for adding a new student
 
 const newStudentName = ref('')
 const newStarID = ref('')
@@ -28,7 +31,8 @@ function addStudent() {
     }
 
     // add to list
-    // TODO - how to add student
+    // add by calling addNewStudent function in the studentStore
+    studentStore.addNewStudent(student)
 
     // clear both input fields
     newStudentName.value = ''
