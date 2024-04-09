@@ -8,6 +8,10 @@ const studentStore = useStudentStore()  // reference the store
 
 const { studentList } = storeToRefs(studentStore)  // convert studentList in store to ref in this component
 
+const deleteStudent = (student) => {
+  studentStore.deleteStudent(student)  // use studentStore function deleteStudent
+}
+
 </script>
 
 <template>

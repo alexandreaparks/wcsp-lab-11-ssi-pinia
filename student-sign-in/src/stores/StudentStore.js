@@ -16,6 +16,12 @@ export const useStudentStore = defineStore('students', () => {
         studentList.value.push(student)
     }
 
+    function deleteStudent(studentToDelete) {
+        studentList.value = studentList.value.filter( (student) => {
+            return studentToDelete !== student  // filters list to only include students that are not equal to studentToDelete
+        })
+    }
+
 
     return {  // return all variable/function names
         // reactive data
@@ -23,7 +29,8 @@ export const useStudentStore = defineStore('students', () => {
         mostRecentStudent,
 
         // functions
-        addNewStudent
+        addNewStudent,
+        deleteStudent
     }
 
 })
