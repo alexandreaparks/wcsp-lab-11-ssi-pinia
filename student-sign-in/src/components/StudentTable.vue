@@ -6,7 +6,7 @@ import { storeToRefs } from 'pinia' // import to convert data in store into refs
 
 const studentStore = useStudentStore()  // reference the store
 
-const { studentList, studentCount } = storeToRefs(studentStore)  // convert data in store to ref in this component
+const { sortedStudents, studentCount } = storeToRefs(studentStore)  // convert data in store to ref in this component
 
 const deleteStudent = (student) => {
   studentStore.deleteStudent(student)  // use studentStore function deleteStudent
@@ -44,7 +44,7 @@ const arrivedOrLeft = (student) => {
           the student will be signed in/out -->
 
           <!-- add present class if the student is present, add absent if the student is not present-->
-          <tr v-for="student in studentList" v-bind:class="{ present: student.present, absent: !student.present}">
+          <tr v-for="student in sortedStudents" v-bind:class="{ present: student.present, absent: !student.present}">
 
             <td>{{ student.name }}</td>
             <td>{{ student.starID }}</td>

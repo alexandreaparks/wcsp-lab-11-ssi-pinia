@@ -32,6 +32,12 @@ export const useStudentStore = defineStore('students', () => {
         return studentList.value.length
     })
 
+    const sortedStudents = computed( () => {
+        return studentList.value.toSorted( (s1, s2) => {
+            return s1.name.localeCompare(s2.name)
+        } )
+    })
+
 
     return {  // return all variable/function/computed property names
         // reactive data
@@ -44,7 +50,8 @@ export const useStudentStore = defineStore('students', () => {
         arrivedOrLeft,
 
         // computed properties
-        studentCount
+        studentCount,
+        sortedStudents
     }
 
 })
