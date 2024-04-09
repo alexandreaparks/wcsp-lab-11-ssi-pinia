@@ -5,8 +5,10 @@ import { ref, computed } from 'vue'
 export const useStudentStore = defineStore('students', () => {
 
     const studentList = ref([
-        { name: 'Alexandrea Parks', starID: 'yy2888bl', present: false },
-        { name: 'Austin Daly', starID: 'uh2654gd', present: false },
+        { name: 'Alexandrea', starID: 'yy2888bl', present: false },
+        { name: 'Zoey', starID: 'ha2601yj', present: false },
+        { name: 'Austin', starID: 'uh2654gd', present: false }
+
     ])
 
     const mostRecentStudent = ref( {} )  // empty object
@@ -26,8 +28,12 @@ export const useStudentStore = defineStore('students', () => {
         mostRecentStudent.value = student  // assign the student passed to this function to be the mostRecentStudent
     }
 
+    const studentCount = computed(() => {
+        return studentList.value.length
+    })
 
-    return {  // return all variable/function names
+
+    return {  // return all variable/function/computed property names
         // reactive data
         studentList,
         mostRecentStudent,
@@ -35,7 +41,10 @@ export const useStudentStore = defineStore('students', () => {
         // functions
         addNewStudent,
         deleteStudent,
-        arrivedOrLeft
+        arrivedOrLeft,
+
+        // computed properties
+        studentCount
     }
 
 })

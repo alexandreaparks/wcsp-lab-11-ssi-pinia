@@ -6,7 +6,7 @@ import { storeToRefs } from 'pinia' // import to convert data in store into refs
 
 const studentStore = useStudentStore()  // reference the store
 
-const { studentList } = storeToRefs(studentStore)  // convert studentList in store to ref in this component
+const { studentList, studentCount } = storeToRefs(studentStore)  // convert data in store to ref in this component
 
 const deleteStudent = (student) => {
   studentStore.deleteStudent(student)  // use studentStore function deleteStudent
@@ -23,8 +23,8 @@ const arrivedOrLeft = (student) => {
   <div id="student-list-table" class="card m-2 p-2">
     <h4 class="card-title">Student List</h4>
 
-    <h5 v-if="studentCount === 1">{{ studentCount }} student in class</h5>
-    <h5 v-else>{{ studentCount }} students in class</h5>
+    <h5 class="card-subtitle text-muted" v-if="studentCount === 1">{{ studentCount }} student in class</h5>
+    <h5 class="card-subtitle text-muted" v-else>{{ studentCount }} students in class</h5>
 
     <div id="student-table">
       <table class="table">
